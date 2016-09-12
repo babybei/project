@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>上传</title>
+	<link rel="stylesheet" type="text/css" href="upload/uploadify.css">
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="upload/jquery.uploadify.js"></script>
+	<script type="text/javascript" src="upload/swfobject.js"></script>
+	<script type="text/javascript">
+		setTimeout(function(){
+			$('#uploadify').uploadify({ // 设置上传参数
+		          //  'width': 68,
+		         //   'height': 26,
+		            'swf': '${ctxStatic}/upload/uploadify.swf', //指定上传控件的主体文件
+		      //    'buttonImage': '/uploadify/upload_img2.png', // Flash中的上传按钮图片
+		            'uploader': 'http://old.manage.xdf.cn/uploadify/uniUploadify.v.3.2.1.php', //指定服务器端上传处理文件
+		            'formData': {'firtype': 13}, // 测试期间firtype用25，发布后用申请了的
+		            'auto': false, //选定文件后是否自动上传
+		            'buttonText' : '请选择视频文件',
+		            'multi': false,
+		            'uploadLimit':1,
+		          //  'debug': true, // debug模式
+		            'fileTypeDesc': '请上传视频文件', // 出现在上传对话框中的文件类型描述
+		            'fileTypeExts': '*.wmv;*.wm;*.asf;*.asx;*.rm;*.rmvb;*.ra;*.ram;*.mpg;*.mpeg;*.mpe;*.vob;*.dat;*.mov;*.3gp;*.mp4;*.mp4v;*.m4v;*.mkv;*.avi;*.flv;*.f4v;*.mts', // 控制可上传文件的扩展名，启用本项时需同时声明fileDesc
+		            'fileSizeLimit': '700MB', // 控制上传文件的大小字符串 B KB MB GB
+		            'onUploadSuccess': function (file, data, response) {
+		            	$("#upFileName").html(file.name);
+		            	if(response){
+		            		//上传成功
+		            		var result = eval('(' + data + ')');
+		            		$("#xdfVideoId").val(result.vid);
+		            		$("#oldName").val(file.name);
+		            		$("#showName").val(file.name);
+		            		$("#newName").val(result.saved_video_name);
+		            		
+		            		$("#videoUp").css('display','none');
+		            		$("#videoSuccess").css('display','block');
+		            		$("#delVideo").attr('vid',result.vid);
+		            		
+		            		//上传成功自动保存页面
+		            		$.ajax({
+		            			cache: true,
+		            			type: "POST",
+		            			url: "${ctx}/resource/video/upsave",
+					                data:$('#inputForm').serialize(),// 你的formid
+					                async: false,
+					                error: function(request) {
+					                	alert("保存错误");
+					                },
+					                success: function(data) {
+					                	if("true"==data){
+					                		alert("上传成功!");
+					                		//刷新页面
+					                		window.frameElement.src = "/a/resource/video/list";
+					                	}
+					                	
+					                }
+					            });
+		            		
+		            	}else{
+		            		alert("上传失败，请重新上传!");
+		            	}
+
+		                // 返回数据示例
+		                // response: true 成功 false 失败
+		                // data 视频数据
+		                // {
+		                //	"vid":9418, 视频id
+		                //	"saved_video_name":"1426228949_1819587861",  视频文件名（被重新命名后视频文件的名字，不含后缀）
+		                //  "name":"TOEFL讲解test1", 视频标题
+		                //  'firtype':25, 分类ID
+		                //  "status":1,  1 成功 0 有错误
+		                //  "error_info":""  错误消息
+			// }
+		                // TODO：视频已经上传到视频推送服务器中，视频数据也已经成功插入统一视频数据库中，你可以在这里做你自己的本地处理
+		            }
+		        });
+},10);
+$("#uploadVideo").click(function(){
+	if($("#uploadify").data('uploadify').queueData.queueLength==0){
+		alert("请先选择视频文件");
+	}else{
+		$('#uploadify').uploadify('upload');
+	}
+});
+</script>
+</head>
+<body>
+	<label class="control-label">视频上传:</label>
+	<div class="controls" id="videoUp" >
+		<input type="file" name="uploadify" id="uploadify" />
+		<a href="javascript:void(0)" id="uploadVideo">上传</a>&nbsp;&nbsp;| &nbsp;&nbsp;
+		<a href="javascript:$('#uploadify').uploadify('cancel')">取消上传</a>
+	</div>
+</body>
+</html>

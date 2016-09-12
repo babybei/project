@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>日期控件</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="My97DatePicker/skin/WdatePicker.css">
+	<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+	<div class="control-group" style="margin-top:20px">
+			<label class="control-label">开始时间：</label>
+			<div class="controls">
+				<input id="mystartDate" name="startDate" type="text"
+					readonly="readonly" maxlength="20" class="Wdate required"
+					onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',isShowClear:true});" />
+			</div>
+		</div>
+</body>
+</html>

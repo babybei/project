@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+	<script type="text/javascript" src="http://code.enhance.cn/dist/libs/jquery/1.11.0/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="vsStyle/treeTable.css">
+	<script type="text/javascript" src="jquery.treeTable.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//http://www.cnblogs.com/hongyuniu/archive/2012/07/04/2575929.html
+			$("#treeTable").treeTable({expandLevel : 2,column:0});
+
+		})
+	</script>
+</head>
+<body>
+	<table id="treeTable" class="table table-striped table-bordered table-condensed tree_table">
+		<tbody>
+			<tr>
+				<th>机构名称</th><th>归属区域</th><th>机构编码</th><th>机构类型</th><th>备注</th><th>操作</th>
+			</tr>
+
+			<tr id="2" pid="0" class="0" haschild="true" previd="" islastone="true" depth="1">
+				<td><a href="/a/sys/office/form?id=2">北京学校</a></td>
+				<td>北京市</td>
+				<td>DPBJ000</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=2">修改</a>
+					<a href="/a/sys/office/delete?id=2" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=2">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="3" pid="2" class="2" isfirstone="true" depth="2">
+				<td><a href="/a/sys/office/form?id=3">北美项目部</a></td>
+				<td>北京市</td>
+				<td>DPBJ001</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=3">修改</a>
+					<a href="/a/sys/office/delete?id=3" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=3">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="4" pid="2" class="2" previd="3" depth="2">
+				<td><a href="/a/sys/office/form?id=4">国内考试部</a></td>
+				<td>北京市</td>
+				<td>DPBJ002</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=4">修改</a>
+					<a href="/a/sys/office/delete?id=4" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=4">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="5" pid="2" class="2" previd="4" depth="2">
+				<td><a href="/a/sys/office/form?id=5">英语学习部</a></td>
+				<td>北京市</td>
+				<td>DPBJ003</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=5">修改</a>
+					<a href="/a/sys/office/delete?id=5" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=5">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="6" pid="2" class="2" previd="5" depth="2">
+				<td><a href="/a/sys/office/form?id=6">中学英语项目部</a></td>
+				<td>北京市</td>
+				<td>DPBJ004</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=6">修改</a>
+					<a href="/a/sys/office/delete?id=6" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=6">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="7" pid="2" class="2" previd="6" depth="2">
+				<td><a href="/a/sys/office/form?id=7">少儿部</a></td>
+				<td>北京市</td>
+				<td>DPBJ005</td>
+				<td>公司</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=7">修改</a>
+					<a href="/a/sys/office/delete?id=7" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=7">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="8" pid="2" class="2" previd="7" depth="2">
+				<td><a href="/a/sys/office/form?id=8">小语种</a></td>
+				<td>北京市</td>
+				<td>DPBJ006</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=8">修改</a>
+					<a href="/a/sys/office/delete?id=8" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=8">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="18" pid="2" class="2" previd="8" depth="2">
+				<td><a href="/a/sys/office/form?id=18">企业培训</a></td>
+				<td>北京市</td>
+				<td>DPBJ007</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=18">修改</a>
+					<a href="/a/sys/office/delete?id=18" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=18">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="19" pid="2" class="2" previd="18" depth="2">
+				<td><a href="/a/sys/office/form?id=19">实用英语培训部</a></td>
+				<td>北京市</td>
+				<td>DPBJ008</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=19">修改</a>
+					<a href="/a/sys/office/delete?id=19" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=19">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="20" pid="2" class="2" previd="19" depth="2">
+				<td><a href="/a/sys/office/form?id=20">国际预备学校</a></td>
+				<td>北京市</td>
+				<td>DPBJ010</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=20">修改</a>
+					<a href="/a/sys/office/delete?id=20" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=20">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="22" pid="2" class="2" previd="20" depth="2">
+				<td><a href="/a/sys/office/form?id=22">VIP班部门</a></td>
+				<td>北京市</td>
+				<td>DPBJ011</td>
+				<td>公司</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=22">修改</a>
+					<a href="/a/sys/office/delete?id=22" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=22">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="24" pid="2" class="2" previd="22" depth="2">
+				<td><a href="/a/sys/office/form?id=24">英联邦项目部</a></td>
+				<td>北京市</td>
+				<td>DPBJ015</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=24">修改</a>
+					<a href="/a/sys/office/delete?id=24" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=24">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="25" pid="2" class="2" previd="24" depth="2">
+				<td><a href="/a/sys/office/form?id=25">中学项目部</a></td>
+				<td>北京市</td>
+				<td>DPBJ016</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=25">修改</a>
+					<a href="/a/sys/office/delete?id=25" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=25">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="9" pid="2" class="2" previd="25" depth="2">
+				<td><a href="/a/sys/office/form?id=9">教务部</a></td>
+				<td>北京市</td>
+				<td>DPBJ050</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=9">修改</a>
+					<a href="/a/sys/office/delete?id=9" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=9">添加下级机构</a> 
+				</td>
+			</tr>
+
+			<tr id="10" pid="2" class="2" previd="9" depth="2">
+				<td><a href="/a/sys/office/form?id=10">客户服务中心</a></td>
+				<td>北京市</td>
+				<td>DPBJ060</td>
+				<td>部门</td>
+				<td></td>
+				<td>
+					<a href="/a/sys/office/form?id=10">修改</a>
+					<a href="/a/sys/office/delete?id=10" onclick="return confirmx('要删除该机构及所有子机构项吗？', this.href)">删除</a>
+					<a href="/a/sys/office/form?parentId=10">添加下级机构</a> 
+				</td>
+			</tr>		
+
+		</tbody>
+	</table>
+</body>
+</html>
